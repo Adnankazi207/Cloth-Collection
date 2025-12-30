@@ -20,7 +20,7 @@ const ProductDetail = () => {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/products");
+      const res = await axios.get("https://cloth-collection-backend.onrender.com/api/products");
       setProducts(res.data);
     } catch (error) {
       console.error("Failed to fetch products", error);
