@@ -1,6 +1,7 @@
 import { MessageCircle, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import axios from axios;
 
 const HeroSection = () => {
   const whatsappLink =
@@ -9,6 +10,16 @@ const HeroSection = () => {
   /* ================= BACKGROUND SLIDER ================= */
   const heroImages = ["/Hero.jpeg", "/Hero2.jpeg", "/Hero3.jpeg"];
   const [currentImage, setCurrentImage] = useState(0);
+
+  const getServer = async () => {
+    const response = await axios.get(
+      "https://cloth-collection-backend.onrender.com/api/products/get"
+    );
+  };
+
+  useEffect(() => {
+    getServer();
+  },[])
 
   useEffect(() => {
     const interval = setInterval(() => {

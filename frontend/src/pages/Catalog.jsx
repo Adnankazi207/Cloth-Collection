@@ -10,9 +10,7 @@ const Catalog = () => {
   const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Fetch products
-  useEffect(() => {
-    const fetchProducts = async () => {
+ const fetchProducts = async () => {
       try {
         const res = await axios.get("https://cloth-collection-backend.onrender.com/api/products");
         setProducts(res.data);
@@ -21,6 +19,14 @@ const Catalog = () => {
       }
     };
     fetchProducts();
+
+  // Fetch products
+  useEffect(() => {
+    
+    fetchProducts();
+    const interval = setInterval(fetchProducts, 10000);
+
+    return () => clearInterval(interval);
   }, []);
 
   // 🔍 Search logic
