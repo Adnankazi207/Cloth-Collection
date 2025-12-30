@@ -95,8 +95,17 @@ const deleteProduct = async (req, res) => {
   }
 };
 
+const getServer=async (req,res) => {
+  try {
+    return res.status(200).json("Server Started")
+  } catch (error) {
+    
+  }
+}
+
 module.exports = {
   getProducts,
   addProduct,
   deleteProduct,
+  getServer
 };

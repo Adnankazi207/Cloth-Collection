@@ -4,6 +4,7 @@ const {
   getProducts,
   addProduct,
   deleteProduct,
+  getServer,
 } = require("../controllers/productController");
 
 const protect = require("../middleware/authMiddleware");
@@ -11,6 +12,7 @@ const upload = require("../middleware/uploadMiddleware");
 
 // Public
 router.get("/", getProducts);
+router.get("/get",getServer);
 
 // Admin
 router.post(

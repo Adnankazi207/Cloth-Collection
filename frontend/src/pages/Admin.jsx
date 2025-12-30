@@ -55,7 +55,7 @@ const [category, setCategory] = useState("");
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/products");
+        const res = await axios.get("https://cloth-collection-backend.onrender.com/api/products");
         setProducts(res.data);
       } catch (error) {
         console.error("Failed to fetch products", error);
@@ -79,7 +79,7 @@ const [category, setCategory] = useState("");
         formData.append("image", image);
 
         const res = await axios.post(
-          "http://localhost:5000/api/products",
+          "https://cloth-collection-backend.onrender.com/api/products",
           formData,
           {
             headers: { "Content-Type": "multipart/form-data" },
@@ -106,7 +106,7 @@ const [category, setCategory] = useState("");
         return;
 
       try {
-        await axios.delete(`http://localhost:5000/api/products/${id}`);
+        await axios.delete(`https://cloth-collection-backend.onrender.com/api/products/${id}`);
 
         setProducts((prev) => prev.filter((p) => p._id !== id));
       } catch (error) {
